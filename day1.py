@@ -38,7 +38,11 @@ def count_positive(values: list[int]) -> int:
     Example: count_positive([-3, 5, 0, -1, 8, 2]) -> 3
     """
     # TODO (Task 1): Count positive integers using an accumulator.
-    raise NotImplementedError
+    number=0
+    for value in values:
+        if value>0:
+            number+=1
+    return number
 
 
 def sum_x_coordinates(points: list[Point]) -> float:
@@ -47,7 +51,10 @@ def sum_x_coordinates(points: list[Point]) -> float:
     Example: Point x-values [1.0, 3.0, -2.0] -> 2.0
     """
     # TODO (Task 2): Accumulate the x-coordinate of each existing point.
-    raise NotImplementedError
+    sum=0.0
+    for p in points:
+        sum+=p.x
+    return sum
 
 
 def average_y_coordinate(points: list[Point]) -> float | None:
@@ -56,7 +63,13 @@ def average_y_coordinate(points: list[Point]) -> float | None:
     Example: Point y-values [2.0, 6.0, 10.0] -> 6.0
     """
     # TODO (Task 3): Handle the empty case and calculate the average y.
-    raise NotImplementedError
+    if len(points)==0:
+        return None
+    value=0
+    for p in points:
+        value+=p.y
+    value=value/len(points)
+    return value
 
 
 def book_with_most_authors(books: list[Book]) -> Book | None:
@@ -66,7 +79,13 @@ def book_with_most_authors(books: list[Book]) -> Book | None:
     Do not construct another Book.
     """
     # TODO (Task 4): Remember the best Book object found so far.
-    raise NotImplementedError
+    comparison=0
+    object=None
+    for book in books:
+        if len(book.authors)>comparison:
+            comparison=len(book.authors)
+            object=book
+    return object
 
 
 def furthest_from_origin(points: list[Point]) -> int | None:
