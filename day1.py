@@ -95,7 +95,16 @@ def furthest_from_origin(points: list[Point]) -> int | None:
     Point.distance_to method instead of duplicating its formula.
     """
     # TODO (Task 5): Track the best index using Point.distance_to.
-    raise NotImplementedError
+    if len(points)==0:
+        return None
+    max_distance=0
+    index=0
+    for i in range(len(points)):
+        distance=points[i].distance_to(Point(0,0))
+        if distance>max_distance:
+            max_distance=distance
+            index=i
+    return index
 
 
 def closest_book_title(books: list[Book], target_length: int) -> str | None:
@@ -105,4 +114,13 @@ def closest_book_title(books: list[Book], target_length: int) -> str | None:
     return the title from the first such book. Do not change the books.
     """
     # TODO (Task 6): Track the smallest absolute length difference.
-    raise NotImplementedError
+    if len(books)==0:
+        return None
+    closest_title=books[0].title
+    closest_diff=abs(len(closest_title)-target_length)
+    for book in books:
+        diff=abs(len(book.title)-target_length)
+        if diff<closest_diff:
+            closest_diff=diff
+            closest_title=book.title
+    return closest_title
